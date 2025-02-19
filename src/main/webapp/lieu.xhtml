@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Lieu</title>
+        <!-- Intégration de Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+    </h:head>
+    <h:body>
+        <h1>Ajouter un lieu</h1>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="name" value="Nom:" />
+                <h:inputText id="name" value="#{lieuBean.nom}" />
+                <h:outputLabel for="description" value="Description:" />
+                <h:inputTextarea id="description" value="#{lieuBean.description}" />
+                <h:outputLabel for="latitude" value="Latitude:" />
+                <h:inputText id="latitude" value="#{lieuBean.latitude}" />
+                <h:outputLabel for="longitude" value="Longitude:" />
+                <h:inputText id="longitude" value="#{lieuBean.longitude}" />
+                <h:commandButton value="Ajouter" action="#{lieuBean.ajouterLieu}" />
+            </h:panelGrid>
+            <h:commandButton value="Annuler" action="#{lieuBean.annuler}" />
+        </h:form>
+
+        <h:panelGroup layout="block" styleClass="mt-3">
+            <h:outputText value="Lieux ajoutés:" rendered="#{not empty lieuBean.lieuxDetails}" />
+            <ul>
+                <ui:repeat value="#{lieuBean.lieuxDetails}" var="lieu">
+                    <li><h:outputText value="#{lieu}" /></li>
+                </ui:repeat>
+            </ul>
+        </h:panelGroup>
+    </h:body>
+</html>

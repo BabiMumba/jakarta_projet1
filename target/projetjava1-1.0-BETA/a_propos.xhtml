@@ -4,14 +4,31 @@
       xmlns:h="jakarta.faces.html">
     <h:head>
         <title>À propos</title>
+        <!-- Intégration de Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
     </h:head>
-    <h:body>
+    <h:body class="d-flex flex-column align-items-center">
+
+    <h1 class="mt-4">Pages à propos</h1>
 
        <h:form>
         <h:commandButton value="Ajouter" action="#{NavigationBean.ajouter}" />
         <h:commandButton value="Visiter" action="#{NavigationBean.visiter}" />
-        </h:form>
-    
+       </h:form>
 
+    <p></p>
+
+    <div class="mt-4">
+        <h2>Section d'informations</h2>
+        <p>Bienvenue sur notre page À propos. Nous sommes ravis de vous présenter nos services et notre équipe.</p>
+    </div>
+
+    <div class="mt-4">
+        <h3>Notre Équipe</h3>
+        <p>Nous avons une équipe d'experts dédiés prêts à vous aider.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+       
     </h:body>
 </html>

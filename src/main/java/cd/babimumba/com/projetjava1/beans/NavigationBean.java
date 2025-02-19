@@ -37,7 +37,7 @@ public class NavigationBean {
 
     public void ajouter() {
         try{
-            FacesContext.getCurrentInstance().getExternalContext().redirect("ajouterProduit.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("lieu.xhtml");
         } catch (IOException e) {
             e.printStackTrace();
         }
