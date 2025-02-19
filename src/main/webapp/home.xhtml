@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html">
+    <h:head>
+        <title>Accueil</title>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="jumbotron">
+            <h1 class="display-4">Bienvenue sur notre site!</h1>
+            <h2>Explorez nos services</h2>
+            <p class="lead">Nous sommes ravis de vous accueillir sur notre site. Découvrez nos offres et services.</p>
+            </div>
+        </div>
+        <h:form>
+          
+            <h:commandButton value="À propos" action="#{NavigationBean.voirApropo}" 
+                             styleClass="btn btn-primary w-100"/>
+        </h:form>
+    </h:body>
+</html>
