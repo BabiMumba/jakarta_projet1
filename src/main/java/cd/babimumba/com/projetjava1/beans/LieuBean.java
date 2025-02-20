@@ -2,22 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package cd.babimumba.com.projetjava1.beans;
-
 /**
  *
  * @author Babi Mumba
  */
+package cd.babimumba.com.projetjava1.beans;
+
 import cd.babimumba.com.projetjava1.beans.business.LieuEntrepriseBean;
 import cd.babimumba.com.projetjava1.beans.entities.Lieu;
 
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import jakarta.enterprise.context.RequestScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Named("lieuBean")
+@RequestScoped
 public class LieuBean implements Serializable {
 
     private String nom;
