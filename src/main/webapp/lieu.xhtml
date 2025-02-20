@@ -8,30 +8,56 @@
         <!-- Intégration de Bootstrap -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
     </h:head>
-    <h:body>
-        <h1>Ajouter un lieu</h1>
-        <h:form>
-            <h:panelGrid columns="2">
-                <h:outputLabel for="name" value="Nom:" />
-                <h:inputText id="name" value="#{lieuBean.nom}" />
-                <h:outputLabel for="description" value="Description:" />
-                <h:inputTextarea id="description" value="#{lieuBean.description}" />
-                <h:outputLabel for="latitude" value="Latitude:" />
-                <h:inputText id="latitude" value="#{lieuBean.latitude}" />
-                <h:outputLabel for="longitude" value="Longitude:" />
-                <h:inputText id="longitude" value="#{lieuBean.longitude}" />
-                <h:commandButton value="Ajouter" action="#{lieuBean.ajouterLieu}" />
-            </h:panelGrid>
-            <h:commandButton value="Annuler" action="#{lieuBean.annuler}" />
-        </h:form>
+    <h:body class="d-flex justify-content-center align-items-center bg-light vh-100">
+        <div class="container text-center p-4 shadow bg-white rounded" style="max-width: 800px;">
+            <h1>Ajouter un lieu</h1>
+            <h:form>
+                <h:panelGrid columns="2" styleClass="table table-borderless">
+                    <h:outputLabel for="name" value="Nom:" />
+                    <h:inputText id="name" value="#{lieuBean.nom}" styleClass="form-control" />
+                    <h:outputLabel for="description" value="Description:" />
+                    <h:inputTextarea id="description" value="#{lieuBean.description}" styleClass="form-control" />
+                    <h:outputLabel for="latitude" value="Latitude:" />
+                    <h:inputText id="latitude" value="#{lieuBean.latitude}" styleClass="form-control" />
+                    <h:outputLabel for="longitude" value="Longitude:" />
+                    <h:inputText id="longitude" value="#{lieuBean.longitude}" styleClass="form-control" />
+                    <div class="col-12">
+                        <h:commandButton value="Ajouter" action="#{lieuBean.ajouterLieu}" styleClass="btn btn-primary mt-3 w-100" />
+                        <h:commandButton value="Modifier" action="#{lieuBean.modifierLieu}" styleClass="btn btn-secondary mt-3 w-100" />
+                    </div>
+                </h:panelGrid>
+            </h:form>
 
-        <h:panelGroup layout="block" styleClass="mt-3">
-            <h:outputText value="Lieux ajoutés:" rendered="#{not empty lieuBean.lieuxDetails}" />
-            <ul>
-                <ui:repeat value="#{lieuBean.lieuxDetails}" var="lieu">
-                    <li><h:outputText value="#{lieu}" /></li>
-                </ui:repeat>
-            </ul>
-        </h:panelGroup>
+            <h:form>
+                <h:panelGroup layout="block" styleClass="mt-5">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Description</th>
+                                <th>Latitude</th>
+                                <th>Longitude</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ui:repeat value="#{lieuBean.lieux}" var="lieu">
+                                <tr>
+                                    <td><h:outputText value="#{lieu.nom}" /></td>
+                                    <td><h:outputText value="#{lieu.description}" /></td>
+                                    <td><h:outputText value="#{lieu.latitude}" /></td>
+                                    <td><h:outputText value="#{lieu.longitude}" /></td>
+                                    <td>
+                                        <h:commandButton value="Modifier" action="#{lieuBean.chargerLieu(lieu.id)}" styleClass="btn btn-warning btn-sm" />
+                                        <h:commandButton value="Supprimer" action="#{lieuBean.supprimerLieu(lieu.id)}" styleClass="btn btn-danger btn-sm" />
+                                    </td>
+                                </tr>
+                            </ui:repeat>
+                        </tbody>
+                    </table>
+                </h:panelGroup>
+            </h:form>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </h:body>
 </html>

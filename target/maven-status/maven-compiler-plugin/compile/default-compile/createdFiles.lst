@@ -1,4 +1,6 @@
 cd\babimumba\com\projetjava1\beans\NavigationBean.class
+cd\babimumba\com\projetjava1\beans\entities\Lieu.class
+cd\babimumba\com\projetjava1\beans\business\LieuEntrepriseBean.class
 cd\babimumba\com\projetjava1\resources\JakartaEE10Resource.class
 cd\babimumba\com\projetjava1\beans\LieuBean.class
 cd\babimumba\com\projetjava1\beans\WelcomeBean.class
